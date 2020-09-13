@@ -10,7 +10,7 @@ func main() {
 	<html lang="en">
 	<head>
 	<meta charset="UTF-8">
-	<title>Hello World!</title>
+	<title>Hello Kur!</title>
 	</head>
 	<body>
 	<h1>` + name + `</h1>
