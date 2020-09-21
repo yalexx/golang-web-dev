@@ -16,6 +16,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+
 }
 
 // Do not use the above code in production
