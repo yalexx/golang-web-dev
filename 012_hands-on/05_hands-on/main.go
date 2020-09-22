@@ -8,10 +8,7 @@ import (
 
 var tpl *template.Template
 
-type menu struct {
-	Meal  string
-	Meals []meal
-}
+type menu []meal
 
 type meal struct {
 	Name  string
@@ -30,39 +27,36 @@ func init() {
 func main() {
 
 	m := menu{
-
-		Meals: []meal{
-			meal{
-				Name: "Breakfast",
-				Items: []menuItem{
-					menuItem{
-						"Bread", 10,
-					},
-					menuItem{
-						"Eggs", 20,
-					},
+		meal{
+			Name: "Breakfast",
+			Items: []menuItem{
+				menuItem{
+					"Bread", 10,
+				},
+				menuItem{
+					"Eggs", 20,
 				},
 			},
-			meal{
-				Name: "Lunch",
-				Items: []menuItem{
-					menuItem{
-						"Kur", 5,
-					},
-					menuItem{
-						"Hui", 15,
-					},
+		},
+		meal{
+			Name: "Lunch",
+			Items: []menuItem{
+				menuItem{
+					"Kur", 5,
+				},
+				menuItem{
+					"Hui", 15,
 				},
 			},
-			meal{
-				Name: "Dinner",
-				Items: []menuItem{
-					menuItem{
-						"Bum", 1,
-					},
-					menuItem{
-						"Bam", 2,
-					},
+		},
+		meal{
+			Name: "Dinner",
+			Items: []menuItem{
+				menuItem{
+					"Bum", 1,
+				},
+				menuItem{
+					"Bam", 2,
 				},
 			},
 		},
