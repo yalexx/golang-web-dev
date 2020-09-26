@@ -13,13 +13,13 @@ func init() {
 }
 
 func main() {
-	http.HandleFunc("/dog/", dog)
-	http.HandleFunc("/me/", me)
+	http.Handle("/dog/", http.HandlerFunc(dog))
+	http.Handle("/me/", http.HandlerFunc(me))
 	http.ListenAndServe(":8080", nil)
 }
 
 func dog(w http.ResponseWriter, req *http.Request) {
-	err := tpl.ExecuteTemplate(w, "dog.gohtml", "Dog")
+	err := tpl.ExecuteTemplate(w, "dog.gohtml", "Still Dog")
 	if err != nil {
 		log.Fatalln("Error in dog route")
 	}
@@ -27,7 +27,7 @@ func dog(w http.ResponseWriter, req *http.Request) {
 }
 
 func me(w http.ResponseWriter, req *http.Request) {
-	err := tpl.ExecuteTemplate(w, "me.gohtml", "Yanko")
+	err := tpl.ExecuteTemplate(w, "me.gohtml", "Still Yanko ?")
 	if err != nil {
 		log.Fatalln("Error in dog route")
 	}
