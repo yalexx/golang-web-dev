@@ -12,11 +12,11 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func set(w http.ResponseWriter, req *http.Request) {
+func set(w http.ResponseWriter, _ *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:  "my-cookie",
 		Value: "some value",
-		Path: "/",
+		Path:  "/",
 	})
 	fmt.Fprintln(w, "COOKIE WRITTEN - CHECK YOUR BROWSER")
 	fmt.Fprintln(w, "in chrome go to: dev tools / application / cookies")
