@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+
 	_ "github.com/lib/pq"
 )
 
@@ -14,7 +15,8 @@ type Book struct {
 }
 
 func main() {
-	db, err := sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
+	db, err := sql.Open("postgres",
+		"postgres://bond:password@localhost/bookstore?sslmode=disable")
 	if err != nil {
 		panic(err)
 	}

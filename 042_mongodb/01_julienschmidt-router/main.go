@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
-	"github.com/julienschmidt/httprouter"
 	"net/http"
+
+	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
-	r := httprouter.New()
-	r.GET("/", index)
-	http.ListenAndServe("localhost:8080", r)
+	router := httprouter.New()
+	router.GET("/", index)
+	err := http.ListenAndServe("localhost:8080", router)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
-// note: using 'r' instead of 'req'
-func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, "Welcome!\n")
+func index(writer http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+	fmt.Fprint(writer, "Welcome!\n")
 }
